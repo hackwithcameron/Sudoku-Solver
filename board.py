@@ -15,3 +15,16 @@ test_board = [
     [1, 0, 0],
     [0, 3, 1]
 ]
+
+
+def print_brd(brd):
+    for row in range(len(brd)):
+        if row % 3 == 0 and row != 0:
+            print(" - - - - - - - - - - - - - - ")
+        for num in range(len(brd[0])):
+            if num % 3 == 0 and num != 0:
+                print("|", end=" ")
+            if num == 8:
+                print(brd[row][num])
+            else:
+                print(str(brd[row][num]) + " ", end=" ")
