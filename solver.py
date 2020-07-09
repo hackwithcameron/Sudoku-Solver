@@ -12,8 +12,7 @@ def solver(brd):
     :param brd: Board to be solved
     :return: Solved Sudoku board
     """
-    # Get blank spaces
-    if not get_blank(brd):
+    if not get_blank(brd):      # Finds blank spaces
         return True
     else:
         row, col = get_blank(brd)
@@ -28,6 +27,12 @@ def solver(brd):
 
 
 def get_blank(brd):
+    """
+    Finds first blank space on board.
+
+    :param brd: Board to be solved.
+    :return: Specific location of blank space on board.
+    """
     for row in range(len(brd)):
         for col in range(len(brd[0])):
             if brd[row][col] == 0:
@@ -36,6 +41,13 @@ def get_blank(brd):
 
 
 def valid(brd, num, pos):
+    """
+    Checks to see if guessed number is allowed in blank position.
+    :param brd: Board
+    :param num: Number guessed
+    :param pos: Position on board for num
+    :return: True if number is allowed. False if number already exists in row, col, or 3x3 box.
+    """
     # Check row
     for i in range(len(brd[0])):
         if brd[pos[0]][i] == num and pos[1] != i:
