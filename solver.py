@@ -15,10 +15,10 @@ def solver(brd):
     if not get_blank(brd):      # Finds blank spaces
         return True
     else:
-        row, col = get_blank(brd)
+        row, col = get_blank(brd)   # Unpacking return from get_blank()
 
     for i in range(1, 10):
-        if valid(brd, i, (row, col)):
+        if valid(brd, i, (row, col)):   # Check to see if guess is valid
             brd[row][col] = i
 
             if solver(brd):
